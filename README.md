@@ -3,13 +3,12 @@
 **Ship something small enough to finish, real enough to learn from, and safe
 enough to share.**
 
-Decide what your first version should be in about fifteen minutes, and walk away
-with one page you can act on today. It names the single part that has to work
-for real, tells you what to leave out, and checks the result is safe before
-anyone else opens it.
+In about fifteen minutes, Thin Slice helps you decide what to build first. You
+leave with one page you can use today: the one part that needs to work for real,
+what you can leave out, and what to check before someone else tries it.
 
-Same method whether you are building a payments product, an internal dashboard,
-a feature inside an existing app, or a side project on your laptop.
+Use it for a payments product, an internal dashboard, a feature in an existing
+app, or the side project sitting on your laptop.
 
 ## Install
 
@@ -18,139 +17,161 @@ a feature inside an existing app, or a side project on your laptop.
 /plugin install thin-slice@thin-slice
 ```
 
-Then just describe what you are building. The right skill picks itself up.
+Then describe what you want to build. Thin Slice will guide you to the right
+skill.
 
-## The four things it does differently
+## What it does differently
 
-**1. It names what must be real first.**
-Not generic feature planning. It asks which of seven parts your idea touches:
-deployment, login, payments, access to data, app store approval, sending
-messages, or privacy and permissions. Then it picks the one most likely to
-surprise you and says: this must be in your first version, for real. The other
-six get faked.
+### 1. Finds the part that needs to be real first
 
-**2. It offers the manual version.**
-For most ideas there is a version where a person does the work. A payouts tool
-starts as: someone sends each payment themselves and records it in a
-spreadsheet. Most finance teams already work exactly this way. You learn the
-approval flow and the reconciliation pain before writing anything, and you learn
-which step to automate first. Offered every time, never forced, and skipped
-honestly when the automation is the point.
+Thin Slice looks at the parts your idea depends on: deployment, login, payments,
+data access, app-store approval, messages, privacy, and permissions.
 
-It replaces the judgement and the labour, not the plumbing. The form and the
-place things get saved are still real, because they take minutes.
+It picks the one most likely to cause trouble later and puts it in the first
+version. The other parts can wait or use a temporary stand-in.
 
-**3. Every plan ends as one card.**
-Not a document. One page: first user, one job, real part, not yet, private or
-public, done when, question to learn, next action. It renders in colour, with
-the one part that must be real highlighted, so you can see the decision rather
-than read it.
+### 2. Suggests a manual first version
 
-**4. It has a release gate that names one fix.**
-`ship-check` runs right before another person tries it and returns exactly one
-of three answers: ready to share, share privately first, or fix one thing first.
-When something needs fixing it names only the highest-priority issue. No
-security checklist, no wall of warnings.
+Many ideas can be tested before you automate everything.
 
-## The five skills
+A payouts tool could start with someone sending each payment manually and
+tracking it in a spreadsheet. You learn how approvals and reconciliation
+actually work before building a full payments system.
+
+Thin Slice offers this option when it makes sense. It still keeps the basic flow
+real: a form, a place to save information, and a way to complete the task.
+
+### 3. Ends with one clear card
+
+You get one page, not a long plan.
+
+It includes:
+
+- who will use it first;
+- the one job they need to do;
+- the part that must work for real;
+- what is deliberately postponed;
+- whether it should be private or public;
+- what counts as done;
+- what you are trying to learn; and
+- the next action to take.
+
+The key decision is highlighted so you can see it quickly.
+
+### 4. Checks before you share
+
+Run `ship-check` before another person tries the app.
+
+It gives one answer:
+
+- Ready to share
+- Share privately first
+- Fix one thing first
+
+If something needs attention, it points to the one most important problem. You
+get a clear next step rather than a long warning list.
+
+## The skills
 
 | Skill | Use it when |
 | --- | --- |
-| **plan-thin-slice** | You have an idea, rough or clear. Ends with a Live Slice Card. |
-| **review-slice** | You have a plan already and want it checked before spending time. Hands back a smaller card. |
-| **next-slice** | It is live. Checks for a small safety or reliability fix first, then picks one next thing. |
-| **ship-check** | Right before another person tries it. One of three answers. |
-| **unstick** | It stalled. Diagnoses why and prescribes one hour. |
+| **plan-thin-slice** | You have an idea, whether it is rough or clear. You get a Live Slice Card. |
+| **review-slice** | You already have a plan and want to make it smaller before you spend time building. |
+| **next-slice** | Something is live and you need to decide what to improve next. |
+| **ship-check** | Someone is about to try it and you want a quick final check. |
+| **unstick** | The project has stalled and you need one useful action for the next hour. |
 
 ## How to use it
 
 Talk normally:
 
-- "We want to build stablecoin payouts, where do I start?"
+- "We want to build stablecoin payouts. Where do we start?"
 - "Is this too much for one sprint?"
-- "I'm about to let someone else try it, is it safe?"
-- "It's live on testnet, what now?"
-- "We've been building this for three months and shipped nothing, help"
+- "I'm about to let someone try this. Is it safe to share?"
+- "It's live on testnet. What should we do next?"
+- "We've been building for three months and still haven't shipped. Help."
 
-No setup, no accounts, no connectors.
+There is no setup, account, or connector required.
 
-## Built for regulated and on-chain work
+## For regulated and on-chain work
 
-The method is general, but it earns its keep where the scary parts are real:
-money movement, key handling, provider approvals, and reconciliation.
+Thin Slice works for any kind of project. It is especially useful when the risky
+parts involve money movement, keys, provider approval, or reconciliation.
 
-The plugin knows the specifics. Testnet only for a first version, never a funded
-key on a development machine. Reading confirmations back from the chain, because
-that is where reconciliation bugs live and it is the half people skip. Proving
-one deliberate failure, not just the happy path. And starting custody, licence,
-and compliance conversations on day one in parallel, because they are slower
-than the code and they are not slice work.
+For example, a first on-chain payment slice should:
 
-It will also tell you, plainly, that a working slice is not a compliance
-position.
+- use testnet only;
+- avoid funded keys on a development machine;
+- read transaction confirmation back from the chain;
+- store that confirmation; and
+- include one intentional failure, not only a successful test.
 
-## The card
+It will also remind you to start custody, licensing, and compliance
+conversations early. Those usually take longer than the code.
+
+A working slice does not mean you are compliant.
+
+## Example card
 
 ```
 LIVE SLICE CARD
 Stablecoin contractor payouts
 
-First user      Maya, ops lead who pays 40 contractors monthly
+First user      Maya, the operations lead who pays 40 contractors each month
 One job         Send one payout to one saved address and see it confirmed
-Real part       Moving money. Testnet, from deployed code, confirmation
-                read back from chain and stored.
-Not yet         No batches, no file upload, no approvals, no fiat funding,
-                no second chain, no address book. One hardcoded recipient.
-Private/public  Just Maya and me. No public link. Testnet only.
-Done when       Maya sends one, sees it confirmed, and the stored record
-                matches the chain. Then one that fails on purpose.
-Question        How long does confirmation really take, and what does a
-                failure look like from our side?
+Real part       Moving money: testnet, deployed code, confirmation read from
+                the chain and stored
+Not yet         No batches, file upload, approvals, fiat funding, second chain,
+                or address book. One hardcoded recipient.
+Private/public  Maya and me only. No public link. Testnet only.
+Done when       Maya sends one payment, sees it confirmed, and the saved record
+                matches the chain. Then we test one failure on purpose.
+Question        How long does confirmation take, and what does a failure look
+                like from our side?
 Next action     Send one testnet transaction from a script
 
-Timebox: 2 days    Cost cap: testnet only, no funded key on a laptop
+Timebox: 2 days    Cost cap: testnet only; no funded key on a laptop
 ```
 
-## What is inside
+## What is included
 
-- **must-be-real** — the seven risky parts, what "real" means for each, the
-  cheapest real version, and the manual fallback where one exists. Plus a table
-  of what "shipped" actually means for sixteen project types.
-- **manual-first** — eleven worked manual versions, when the pattern does not
-  apply, and how to offer both side by side.
-- **slice-examples** — deliberately embarrassing first slices across apps,
-  dashboards, features, experiments, AI, agents, data, mobile, extensions, bots,
-  on-chain, payments and hardware.
-- **card-style** — how results are shown. Final deliverables render as colour
-  cards, conversation stays as text. Colour carries meaning: purple for the one
-  part that must be real, green for ready, blue for go smaller, amber for one
-  thing to change. Never red.
-- **safe-first-release** — plain English glossary and how long each common fix
-  takes.
-- **failure-modes** — twenty-two ways slices stop being thin, split into team
-  and solo.
-- **field-guide** — the theory and sources.
+- **must-be-real**: the risky parts to look for, what "real" means for each, the
+  cheapest real version, and a manual option where one exists.
+- **manual-first**: eleven examples of manual first versions, when they work, and
+  when they do not.
+- **slice-examples**: deliberately tiny first versions for apps, dashboards,
+  features, experiments, AI tools, mobile apps, extensions, bots, payments,
+  on-chain products, and hardware.
+- **card-style**: guidance for showing results as simple colour cards. Purple
+  marks the part that must be real; green means ready; blue means make it
+  smaller; amber means change one thing. Red is not used.
+- **safe-first-release**: plain-English explanations of common safety checks and
+  the likely effort for each.
+- **failure-modes**: twenty-two ways a slice can become too large, split between
+  team and solo projects.
+- **field-guide**: the method, background, and sources.
 
-## Honest limits
+## What it cannot do
 
-A thin slice proves the path works. It does not prove people want the product,
-that the app is secure, or that it meets any legal requirement. The safety
-checks catch common, obvious problems so you can show a handful of people today.
-Before real users, real money, or real personal data at any scale, get someone
-qualified to look.
+A thin slice can prove that the path works. It cannot prove that people want the
+product, that the app is secure, or that it meets legal requirements.
 
-For regulated work this matters more, not less. Nothing here substitutes for a
-security review, a custody arrangement, a licence, or advice from your counsel.
-The plugin's job is to stop you spending a quarter before finding out the hard
-part does not work.
+The safety checks are meant to catch common problems before you show a small
+group of people. Before handling real users, real money, or personal data at
+scale, ask a qualified person to review the work.
+
+For regulated products, this does not replace a security review, custody
+arrangement, licence, or legal advice. The goal is simpler: find the difficult
+part before you spend a whole quarter building around it.
 
 ## Background
 
-The method is the walking skeleton, from Alistair Cockburn's *Crystal Clear*
-(2004), with the delivery emphasis from *Growing Object-Oriented Software,
-Guided by Tests* and the tracer bullet idea from *The Pragmatic Programmer*. The
-manual version is a concierge test, long used in product discovery and rarely
-offered inside builder tools.
+The method draws on the walking skeleton idea from Alistair Cockburn's *Crystal
+Clear* (2004), the delivery approach in *Growing Object-Oriented Software,
+Guided by Tests*, and the tracer bullet idea in *The Pragmatic Programmer*.
+
+The manual approach is a concierge test: doing the work by hand first to learn
+what should be automated later.
 
 ## Components
 
