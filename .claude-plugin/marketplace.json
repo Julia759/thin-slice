@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "thin-slice",
+  "description": "Thin Slice: decide what your first version should be, and get it in front of one real person.",
+  "owner": {
+    "name": "Yuliia Zolotarova"
+  },
+  "plugins": [
+    {
+      "name": "thin-slice",
+      "description": "Decide what your first version should be in about fifteen minutes. Names the single part that has to work for real, tells you what to leave out, and checks the result is safe before anyone else opens it.",
+      "author": {
+        "name": "Yuliia Zolotarova"
+      },
+      "category": "productivity",
+      "source": "./",
+      "homepage": "https://github.com/Julia759/thin-slice"
+    }
+  ]
+}
