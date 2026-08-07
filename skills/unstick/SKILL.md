@@ -31,10 +31,40 @@ Ask three questions, in this order, and nothing more before offering a read:
 2. Is it live anywhere, or only on a laptop or a branch?
 3. What were you doing when you stopped?
 
+Then two more, always, before prescribing anything:
+
+4. Does it hold real personal information, salary or financial data, health
+   information, or customer records?
+5. What have you set up, installed, or connected since you last looked at it?
+
+Question 5 catches the common case where a stall was already half solved. The
+approval came through, the account got connected, the thing they were waiting on
+arrived, and nobody wrote it down. See
+`${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md`.
+
+Ask it even when they have not raised it. People rarely volunteer this, and it
+changes the answer completely.
+
 ## Step 2: Match the pattern
 
 Name it plainly. If two fit, pick the earlier one in the table, because earlier
 stalls cause later ones.
+
+**One override, and it beats the table order.** If the answer to question 4 was
+yes, and real personal, salary, financial, health, or customer data is sitting
+in the project, the pattern is **"worried about letting people in"**, whatever
+else also fits.
+
+Never prescribe "deploy whatever exists right now, anywhere free" for a project
+holding real data about real people. That advice is correct for an empty
+prototype and wrong here. Use Step 3b instead: replace the real records with
+made-up ones first, then deploy. Say why in one line, without alarming them.
+
+If the data is regulated, meaning health, financial, or children's information,
+add one sentence: this needs someone qualified to look before real users, and
+that conversation should start now rather than after launch. Then give the
+one-hour action anyway. A real compliance question is a reason to scrub the data
+today, not a reason to stay stuck for another six weeks.
 
 | Pattern | Tell | The real problem |
 | --- | --- | --- |

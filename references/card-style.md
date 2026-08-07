@@ -17,12 +17,15 @@ slideshow. One card at the end, when there is something to keep.
 
 ## How to render
 
-If a visual rendering tool is available in the current environment, use it and
-pass the HTML below. Cowork and the desktop app provide one.
+**How to decide.** Look at the tools available to you this turn. If one of them
+renders HTML or SVG inline, use it and pass the HTML below. If you cannot see
+such a tool, use the plain text template in the skill.
 
-If no rendering tool is available, fall back to the plain text template in the
-skill. The content is identical either way. Never mention which mode is being
-used, and never apologise for the fallback.
+Do not guess, and never emit raw HTML as chat text. Markup printed as words is
+worse than the plain text version. When in doubt, plain text.
+
+The content is identical either way. Never mention which mode is being used, and
+never apologise for the fallback.
 
 ## Colour meaning
 
@@ -155,8 +158,9 @@ Those go in the text around it, if at all.
 - Sentence case everywhere. Never title case, never capitals.
 - Values are fragments, not sentences. "Sam, my co-founder" not "The first user
   will be Sam, who is my co-founder."
-- Keep each value under about ten words. If it does not fit, the answer is not
-  decided yet.
+- Keep each value under about ten words in a rendered card, so the row fits on
+  one line. Written examples in documentation may run longer. If a value cannot
+  be shortened at all, the answer is not decided yet.
 - No emoji anywhere.
 - Two font weights only: regular and medium.
 

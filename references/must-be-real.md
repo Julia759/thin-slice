@@ -229,6 +229,7 @@ private.
 | Mobile app | Installs through the real distribution channel, not a cable |
 | Browser extension | Someone else can install it |
 | CLI tool | Someone else can install it with one command |
+| Library or package | Published to the registry, and someone else adds it as a dependency and builds against it successfully |
 | Bot | Someone else can trigger it and get a reply |
 | Smart contract | On a public testnet, called once, state readable in an explorer |
 | Game | Playable by someone else without a build step |

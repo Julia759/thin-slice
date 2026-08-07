@@ -35,12 +35,43 @@ comes first.
 
 Shape: **[one kind of person] can [one action] so that [one outcome].**
 
+**The sentence comes from their words, not yours.** Never present a menu of
+candidate jobs you invented and ask them to pick. Offering options feels helpful
+and is the fastest way to end up planning your idea instead of theirs. They pick
+the one that sounds best, the session continues, and nobody notices the swap
+until the card is finished and wrong.
+
+If their description contains several jobs, list back **only the ones they
+actually said**, in their own words, and ask which comes first. That is a
+different act from inventing options.
+
+You may propose a shorter rewrite of their own sentence and ask if it still says
+what they meant. That is editing. Adding a job they did not mention is not.
+
 Then ask who is the first person other than them who will touch it. A name, or a
 specific role. "Users" is not an answer. If the honest answer is nobody yet,
 that is fine, and it means the card will carry a solo test instead.
 
-Also ask whether this is solo or a team project. It changes only the timebox:
-hours for solo, days for a team.
+Also ask whether this is solo or a team project. This is about who is **building
+it**, not who will use it. One person building alone is solo, even when several
+people will use the result. It changes only the timebox: hours for solo, days
+for a team.
+
+Ask one more thing here, in plain words: have they deployed anything before, and
+which parts of this have they done before?
+
+**Ask it. Do not infer it.** Never guess someone's experience from how they
+write, what they have talked about earlier, or what they seem to know. Guessing
+low is patronising. Guessing high produces a card they cannot act on. Both waste
+the session, and the question takes five seconds.
+
+This answer decides two things: which part gets named as the real one in Step 2,
+and how the next action is written in Step 6. Getting it wrong changes the whole
+card, so do not carry on without it.
+
+The same applies everywhere in this skill. Every question here is asked, not
+assumed. If you catch yourself writing "assuming you have not..." then stop and
+ask instead.
 
 ## Step 2: What must be real first
 
@@ -100,6 +131,22 @@ manual. Demand is clear and the question is technical: build the slice. Both
 unknown: manual first, because it is faster and the answer changes what you
 build.
 
+**Two situations where you skip the offer entirely.** Do not make people argue
+their way past it.
+
+- **They are already doing it manually and it is failing.** A spreadsheet that
+  has stopped working is the manual version, already run, already answered. Say
+  so and move to the built slice. Ask one question first, because it is worth
+  more than the whole manual test: what specifically breaks about the current
+  way? That answer names the real job.
+- **There is no manual version**, which is true for developer tools, libraries,
+  infrastructure, and anything where the automation itself is the point. Say
+  that in one line and move on. Do not stretch an idea to fit.
+
+If someone reacts to the offer as beneath them or their team, do not defend it.
+One line: "Fair, you already know people want this. Building it is." Then move
+on. The offer costs ten seconds and is never worth an argument.
+
 Say plainly when there is no manual version, which is true for developer tools,
 infrastructure, and anything where the automation itself is the point. Do not
 stretch an idea to fit.
@@ -114,6 +161,12 @@ Short answers. These fill the rest of the card.
    whole flow with fake cards and no real money. This is about the *contents*,
    not about whether to have storage. Made-up records still get saved in a real
    database.
+
+   Give the reason when you ask, because otherwise it sounds like a rule about
+   their product: made-up details protect real people until the page is
+   confirmed private, and they test the system just as well. If their own data
+   is the point, use the smallest amount, and prefer their records over anyone
+   else's.
 2. **Who should be able to reach it?** Just me, a few named people, anyone with
    the link, or anyone at all. For a first version the first two are almost
    always right. A password on the page or an unlisted address is enough.
@@ -137,8 +190,13 @@ no styling, no onboarding, unless one of those *is* the real part.
 Check the timebox. Solo: one sitting. Team: up to two weeks. Over that means
 still too big, so cut again.
 
-Check what could bill: model tokens, hosting, a paid service, gas. Set a spend
-limit before any code runs, not after.
+Check what could bill: model tokens, hosting, a paid service, or gas fees if
+anything runs on a chain. Skip the items that plainly do not apply rather than
+reading the list out. Set a spend limit before any code runs, not after.
+
+If any provider key is involved, settle now where it will live: the hosting
+settings, never the code and never a file in the repository. One sentence here
+prevents the single most common problem `ship-check` has to catch later.
 
 ## Step 6: Show the Live Slice Card
 
@@ -165,10 +223,30 @@ Next action     [one small thing to do now, sized in minutes]
 Timebox: [hours or days]    Cost cap: [limit, or none needed]
 ```
 
+**Every value on this card came from them.** Before writing it, check each row
+against what they actually said. Eight fields, eight answers you were given.
+
+The two you may write yourself are **real part**, which is your analysis of the
+seven risky parts and the reason they came to you, and **not yet**, which is the
+list of what they described minus the one job. Everything else is theirs.
+
+If you are about to write a value nobody said out loud, stop and ask. The four
+most commonly invented, in order, are: done when, question, first user, and
+private or public. Filling those in silently produces a card that reads well and
+belongs to nobody.
+
 Rules for the card:
 
-- **Next action** is one concrete thing doable today, in minutes. "Create the
-  repo and deploy an empty page." Not "set up the project."
+- **Next action** is one concrete thing doable today, in minutes. Write it for
+  the person in front of you, not for a generic developer.
+  - Someone who has deployed before: "Create the repo and deploy an empty
+    page." Not "set up the project."
+  - Someone who has never deployed: name the exact tool and the exact clicks.
+    "Go to netlify.com, sign up with your email, drag a folder with one
+    index.html file onto the page, then open the link it gives you on your
+    phone." A next action they have to research is not a next action.
+  - If you do not know which they are, ask. It is one question and it decides
+    whether this line is useful or decorative.
 - **Done when** must be observable by someone else, not a feeling.
 - **Real part** always names one of the seven, or the personal unknown.
 - **Not yet** lists skipped features and hand-done work. It is not a list of
@@ -200,6 +278,11 @@ Two lines, then stop:
 Offer once, in one line, a check-in on the ship date. Drop it if declined.
 
 ## Guardrails
+
+Once building starts, the rules in
+`${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md` apply: ask what
+changed before acting on the card, and never write, overwrite, delete, or test
+inside their project folder without saying so first.
 
 - A slice with no real part is not a slice. It is a mockup.
 - A slice that stays on a laptop has not started.

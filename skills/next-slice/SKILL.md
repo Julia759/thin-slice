@@ -20,6 +20,24 @@ branch. No slice that is a big switch-over at the end.
 Read `${CLAUDE_PLUGIN_ROOT}/references/must-be-real.md` if a part of the system
 is still faked and it is time to make it real.
 
+## Step 0: Ask what changed
+
+Read `${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md` first.
+
+People do things between messages without narrating them. They sign up, connect
+accounts, get approvals, and swap test data for real data, and none of it
+appears in the conversation. Whatever you remember about this project is the
+state at the last thing you were told, which is not the current state.
+
+Three questions, before anything else:
+
+1. What have you set up, installed, or connected since we last spoke?
+2. Has anything on the "not yet" list become real?
+3. Is any of the data real now, rather than test data?
+
+If the answer to 2 or 3 is yes, the card changed. Update it before sequencing
+anything, because "not yet" and "private or public" are both probably wrong now.
+
 ## Step 1: Confirm it is live
 
 Ask whether someone who is not the builder can reach it right now. If not, stop
@@ -38,7 +56,8 @@ Before touching the wishlist, three quick questions:
 - **Reliability.** Has it broken since going live? Could it fail without telling
   anyone?
 - **Learning.** Can you tell whether people use it and whether the main action
-  succeeds? Did the last release answer its question?
+  succeeds? Did the last release answer its question, and were its "done when"
+  conditions actually met rather than just attempted?
 
 If any turns up something, that is the next slice, ahead of any feature. Keep it
 small: swap real names for made-up ones, add a password to the page, move a key

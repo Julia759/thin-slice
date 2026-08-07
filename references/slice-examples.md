@@ -139,6 +139,19 @@ consume the first weekend.
 script, state readable in a block explorer.
 **Proves.** Toolchain, deploy path, verification.
 
+## Library or package
+
+**Slice.** One function, published to the real registry under the real name, and
+installed into a throwaway project by someone who is not you. It does the
+smallest true version of its job on one hardcoded input.
+**Hardcoded.** Everything else. One function, no options, no configuration.
+**Proves.** Naming, packaging, versioning, and that the published artifact
+actually builds in someone else's project. Those are the parts that surprise
+people. The parsing logic is the easy half.
+**Private or public here** means unpublished and installed from a git URL versus
+published to the registry. Start with the git URL if you are not ready to claim
+the name.
+
 ## CLI tool
 
 **Slice.** Published to the package registry, installable by a stranger with one

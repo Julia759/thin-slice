@@ -30,6 +30,17 @@ If they have a Live Slice Card, use it. "One job" is the main action to test,
 "Done when" is the failure signal, and "First user" is who tries it. Only ask
 about what the card does not already answer.
 
+Two things to check rather than copy. If "First user" is a role rather than a
+person, ask for the actual name now. And if the card's "Done when" included
+something that has not happened yet, such as testing a deliberate failure, ask
+whether it was done. A card is a plan, not a receipt.
+
+**Also ask what changed since the card was written.** Read
+`${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md`. People connect
+accounts and swap test data for real data between messages without mentioning
+it. If the card says test data and the answer is "it's my real account now",
+every one of the six questions below has a different answer.
+
 ## The six questions
 
 Ask all six. Keep answers short. Explain any term the person may not know, in
@@ -140,18 +151,36 @@ rather than fix.
 
 If no rendering tool is available, use the plain text version below.
 
+Two shapes, depending on the outcome. Never both.
+
+**Ready to share, or share privately first:**
+
 ```
-Outcome: [Ready to share / Share privately first / Fix one thing first]
+Outcome: [Ready to share / Share privately first]
 
 Why: [one or two sentences]
-
-[If fixing] The one thing: [specific action, minutes not hours]
 
 When you share:
 - Send to: [name]
 - Ask them to: [the main action, in their words]
 - You'll know it worked because: [the visible signal]
 ```
+
+**Fix one thing first:**
+
+```
+Outcome: Fix one thing first
+
+Why: [one or two sentences]
+
+The one thing: [specific action, minutes not hours]
+
+About [N] minutes. Then run ship check again and share.
+```
+
+Do not include the sharing plan when something needs fixing. Telling someone who
+to send it to in the same breath as naming an exposed key invites them to do
+both. Sharing waits for the second pass.
 
 Keep the whole response short. Someone at this point wants to press send, not
 read a report.

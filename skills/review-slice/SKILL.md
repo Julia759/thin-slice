@@ -3,7 +3,8 @@ name: review-slice
 description: >
   This skill should be used when someone already has a plan, ticket, milestone,
   slice card, or feature list and asks "is this thin enough", "review my plan",
-  "check my scope", "can I build this in a weekend", "does this actually
+  "check my scope", "cut scope", "we need to cut scope for the sprint", "how do
+  I know when it's done", "can I build this in a weekend", "does this actually
   de-risk anything", or pastes a spec for a reality check before starting.
 metadata:
   version: "2.0.0"
@@ -47,6 +48,11 @@ This single question catches more bad plans than everything else combined.
 
 Mark each PASS, WEAK or FAIL with one line of evidence from their own words.
 
+If their plan says nothing either way about a check, mark it **UNKNOWN** and
+write "not stated". Never invent a quote, and never infer a failure from
+silence. A one-line plan will legitimately produce several UNKNOWNs, and that is
+useful information: it tells them what the plan does not yet decide.
+
 1. End to end
 2. Real path, not a shortcut that gets deleted
 3. Live, reachable by someone who is not the builder
@@ -89,7 +95,7 @@ no real part, never red. If no rendering tool is available, use the plain text
 version below.
 
 ```
-Verdict: [thin enough / too big / no real part]
+Verdict: [thin enough / too big / no real part / wrong real part]
 
 Real part: [named, or "missing" with the one it should be]
 
@@ -109,7 +115,7 @@ Done when       [...]
 Question        [...]
 Next action     [...]
 
-Realistic time: [hours or days]
+Timebox: [hours or days]    Cost cap: [limit, or none needed]
 ```
 
 **One thing to check in the other direction.** Most plans are too big, but some

@@ -26,8 +26,9 @@ skill.
 
 ### 1. Finds the part that needs to be real first
 
-Thin Slice looks at the parts your idea depends on: deployment, login, payments,
-data access, app-store approval, messages, privacy, and permissions.
+Thin Slice looks at the seven parts your idea depends on: deployment, login,
+payments, data access, app-store approval, sending messages, and privacy and
+permissions.
 
 It picks the one most likely to cause trouble later and puts it in the first
 version. The other parts can wait or use a temporary stand-in.
@@ -135,6 +136,13 @@ Next action     Send one testnet transaction from a script
 Timebox: 2 days    Cost cap: testnet only; no funded key on a laptop
 ```
 
+## A real run
+
+[Expense tracker with my own categories](examples/expense-tracker.md) — one
+afternoon, one person, from a three-part idea to a working tool reading a real
+bank account. Includes the card, what the method got right, the two mistakes I
+made in my first three saves, and the four bugs the run found in this plugin.
+
 ## What is included
 
 - **must-be-real**: the risky parts to look for, what "real" means for each, the
@@ -180,5 +188,5 @@ what should be automated later.
 | Component | Count |
 | --- | --- |
 | Skills | 5 |
-| Shared references | 7 |
+| Shared references | 8 |
 | Agents, hooks, MCP servers | 0 |
