@@ -5,8 +5,8 @@ enough to share.**
 
 **Website:** [thin-slice-plugin.yuliiazol.chatgpt.site](https://thin-slice-plugin.yuliiazol.chatgpt.site)
 
-In about fifteen minutes, Thin Slice helps you decide what to build first. You
-leave with one page you can use today: the one part that needs to work for real,
+Thin Slice helps you decide what to build first. 
+You'll leave with one page you can use today: the one part that needs to work for real,
 what you can leave out, and what to check before someone else tries it.
 
 Use it for a payments product, an internal dashboard, a feature in an existing
