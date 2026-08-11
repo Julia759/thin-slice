@@ -146,7 +146,7 @@ There is no dashboard yet.
 
 These next steps came from using the working path. I did not have to invent them in advance.
 
-What I learned
+** What I learned **
 
 I began with a dashboard in mind. The most important work happened before there was anything to display.
 
