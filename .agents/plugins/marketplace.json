@@ -1,0 +1,20 @@
+{
+  "name": "thin-slice",
+  "interface": {
+    "displayName": "Thin Slice"
+  },
+  "plugins": [
+    {
+      "name": "thin-slice",
+      "source": {
+        "source": "local",
+        "path": "./plugins/thin-slice"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "thin-slice",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Ship something small enough to finish, real enough to learn from, and safe enough to share. Names the one part of your app that must work for real, offers the manual version that tests the same journey, and ends with a one-page Live Slice Card.",
   "author": {
     "name": "Yuliia Zolotarova"

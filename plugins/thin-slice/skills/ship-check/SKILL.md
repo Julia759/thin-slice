@@ -23,7 +23,7 @@ and nobody learns anything.
 Be encouraging. Someone reaching this point has done the hard part. The job is
 to get them over the line safely, not to invent reasons to wait.
 
-Read `${CLAUDE_PLUGIN_ROOT}/references/safe-first-release.md` for plain English
+Read `../../references/safe-first-release.md` for plain English
 explanations of any term, and for how long each common fix actually takes.
 
 If they have a Live Slice Card, use it. "One job" is the main action to test,
@@ -36,7 +36,7 @@ something that has not happened yet, such as testing a deliberate failure, ask
 whether it was done. A card is a plan, not a receipt.
 
 **Also ask what changed since the card was written.** Read
-`${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md`. People connect
+`../../references/working-on-a-live-project.md`. People connect
 accounts and swap test data for real data between messages without mentioning
 it. If the card says test data and the answer is "it's my real account now",
 every one of the six questions below has a different answer.
@@ -143,7 +143,7 @@ and share.
 
 ## Output format
 
-**Render it visually.** Read `${CLAUDE_PLUGIN_ROOT}/references/card-style.md`
+**Render it visually.** Read `../../references/card-style.md`
 and use the ship-check verdict template. The banner colour carries the message:
 green for ready to share, blue for share privately first, amber for fix one
 thing first. Never red. Nothing here is an emergency, and red makes people stop

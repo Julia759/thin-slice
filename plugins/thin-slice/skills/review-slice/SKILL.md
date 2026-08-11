@@ -18,9 +18,9 @@ as a Live Slice Card.
 Assume it is too big. It usually is, by three to five times, for everyone. The
 job is to show the smaller version, not to approve the one that arrived.
 
-Read `${CLAUDE_PLUGIN_ROOT}/references/must-be-real.md` for the seven risky
+Read `../../references/must-be-real.md` for the seven risky
 parts and the checks. Read
-`${CLAUDE_PLUGIN_ROOT}/references/safe-first-release.md` for plain English on
+`../../references/safe-first-release.md` for plain English on
 any safety term and how long each fix takes.
 
 ## Input
@@ -87,7 +87,7 @@ they have already chosen to build.
 
 ## Output
 
-**Render it visually.** Read `${CLAUDE_PLUGIN_ROOT}/references/card-style.md`
+**Render it visually.** Read `../../references/card-style.md`
 and use the review verdict template: a coloured verdict banner, then one row per
 gap, then the rewritten card underneath so the person leaves with the smaller
 version rather than the criticism. Green for thin enough, amber for too big or

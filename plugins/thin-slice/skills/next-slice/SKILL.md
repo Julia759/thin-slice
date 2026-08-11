@@ -17,12 +17,12 @@ card.
 The rule underneath: **it stays live and working at every step.** No long
 branch. No slice that is a big switch-over at the end.
 
-Read `${CLAUDE_PLUGIN_ROOT}/references/must-be-real.md` if a part of the system
+Read `../../references/must-be-real.md` if a part of the system
 is still faked and it is time to make it real.
 
 ## Step 0: Ask what changed
 
-Read `${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md` first.
+Read `../../references/working-on-a-live-project.md` first.
 
 People do things between messages without narrating them. They sign up, connect
 accounts, get approvals, and swap test data for real data, and none of it
@@ -127,7 +127,7 @@ If it does not fit the timebox, cut again.
 
 One short card. Nothing else.
 
-**Render it visually.** Read `${CLAUDE_PLUGIN_ROOT}/references/card-style.md`
+**Render it visually.** Read `../../references/card-style.md`
 and use the live slice card template with these rows only. If no rendering tool
 is available, use the plain text version below.
 

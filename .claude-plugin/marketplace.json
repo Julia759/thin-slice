@@ -13,7 +13,7 @@
         "name": "Yuliia Zolotarova"
       },
       "category": "productivity",
-      "source": "./",
+      "source": "./plugins/thin-slice",
       "homepage": "https://thin-slice-plugin.yuliiazol.chatgpt.site"
     }
   ]

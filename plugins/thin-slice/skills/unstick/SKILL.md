@@ -17,10 +17,10 @@ again.
 
 Be direct. Reassurance does not restart projects. A specific next hour does.
 
-Read `${CLAUDE_PLUGIN_ROOT}/references/failure-modes.md` for the full pattern
-list. Read `${CLAUDE_PLUGIN_ROOT}/references/safe-first-release.md` when the
+Read `../../references/failure-modes.md` for the full pattern list. Read
+`../../references/safe-first-release.md` when the
 stall is about privacy, access, payments, or reliability. Read
-`${CLAUDE_PLUGIN_ROOT}/references/manual-first.md` when the project stalled
+`../../references/manual-first.md` when the project stalled
 building automation nobody has asked for yet.
 
 ## Step 1: Locate the stall
@@ -40,7 +40,7 @@ Then two more, always, before prescribing anything:
 Question 5 catches the common case where a stall was already half solved. The
 approval came through, the account got connected, the thing they were waiting on
 arrived, and nobody wrote it down. See
-`${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md`.
+`../../references/working-on-a-live-project.md`.
 
 Ask it even when they have not raised it. People rarely volunteer this, and it
 changes the answer completely.
@@ -101,7 +101,7 @@ Exactly one action, sized for a single hour. Not a plan.
 ## Showing the result
 
 **Render the one-hour action visually.** Read
-`${CLAUDE_PLUGIN_ROOT}/references/card-style.md` and use the unstick template:
+`../../references/card-style.md` and use the unstick template:
 one card, the pattern name and the single action, nothing else. The diagnosis
 and any encouragement go in the text around it, not inside the card. If no
 rendering tool is available, state the pattern and the action in two short

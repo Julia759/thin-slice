@@ -20,11 +20,11 @@ for, the one job it does, the one part that must be real, and what to do next.
 The promise to keep: **small enough to finish, real enough to learn from, safe
 enough to share.**
 
-Read `${CLAUDE_PLUGIN_ROOT}/references/must-be-real.md` for the seven risky
-parts. Read `${CLAUDE_PLUGIN_ROOT}/references/manual-first.md` for the manual
-version. Read `${CLAUDE_PLUGIN_ROOT}/references/slice-examples.md` when a slice
-needs shrinking. Read `${CLAUDE_PLUGIN_ROOT}/references/card-style.md` before
-producing the card. Read `${CLAUDE_PLUGIN_ROOT}/references/field-guide.md` if
+Read `../../references/must-be-real.md` for the seven risky parts. Read
+`../../references/manual-first.md` for the manual version. Read
+`../../references/slice-examples.md` when a slice needs shrinking. Read
+`../../references/card-style.md` before producing the card. Read
+`../../references/field-guide.md` if
 someone asks where the method comes from or needs to argue the case to a team.
 
 ## Step 1: One sentence, one person
@@ -203,7 +203,7 @@ prevents the single most common problem `ship-check` has to catch later.
 This is the output. One card, nothing else. No risk tables, no roadmap, no
 appendix.
 
-**Render it visually.** Read `${CLAUDE_PLUGIN_ROOT}/references/card-style.md`
+**Render it visually.** Read `../../references/card-style.md`
 and use the live slice card template. If no rendering tool is available, use the
 plain text version below. Same content either way, and never mention which.
 
@@ -280,7 +280,7 @@ Offer once, in one line, a check-in on the ship date. Drop it if declined.
 ## Guardrails
 
 Once building starts, the rules in
-`${CLAUDE_PLUGIN_ROOT}/references/working-on-a-live-project.md` apply: ask what
+`../../references/working-on-a-live-project.md` apply: ask what
 changed before acting on the card, and never write, overwrite, delete, or test
 inside their project folder without saying so first.
 

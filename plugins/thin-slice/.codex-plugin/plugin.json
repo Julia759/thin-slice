@@ -1,0 +1,40 @@
+{
+  "name": "thin-slice",
+  "version": "2.7.0",
+  "description": "Find the smallest real version worth building, then check it before you share it.",
+  "author": {
+    "name": "Yuliia Zolotarova",
+    "url": "https://github.com/Julia759"
+  },
+  "homepage": "https://thin-slice-plugin.yuliiazol.chatgpt.site",
+  "repository": "https://github.com/Julia759/thin-slice",
+  "license": "MIT",
+  "keywords": [
+    "walking-skeleton",
+    "first-version",
+    "scoping",
+    "shipping",
+    "concierge-test",
+    "side-project",
+    "product-management"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Thin Slice",
+    "shortDescription": "Find the smallest real version worth building.",
+    "longDescription": "Five focused workflows for planning a first version, reviewing scope, choosing what comes next, checking before sharing, and restarting a stalled project.",
+    "developerName": "Yuliia Zolotarova",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://thin-slice-plugin.yuliiazol.chatgpt.site",
+    "defaultPrompt": [
+      "Help me plan the smallest real version of this idea.",
+      "Review this plan and cut it to one thin slice.",
+      "Run a ship check before I share this project."
+    ],
+    "brandColor": "#17C978"
+  }
+}

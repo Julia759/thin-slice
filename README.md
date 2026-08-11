@@ -12,15 +12,27 @@ what you can leave out, and what to check before someone else tries it.
 Use it for a payments product, an internal dashboard, a feature in an existing
 app, or the side project sitting on your laptop.
 
-## Install
+## Install in Codex
+
+In a terminal, run:
+
+```sh
+codex plugin marketplace add Julia759/thin-slice
+codex plugin add thin-slice@thin-slice
+```
+
+Start a new Codex task after installing so the five Thin Slice skills are
+available.
+
+## Install in Claude Code
 
 ```
 /plugin marketplace add Julia759/thin-slice
 /plugin install thin-slice@thin-slice
 ```
 
-Then describe what you want to build. Thin Slice will guide you to the right
-skill.
+Then describe what you want to build. In either product, Thin Slice will guide
+you to the right skill.
 
 ## What it does differently
 
