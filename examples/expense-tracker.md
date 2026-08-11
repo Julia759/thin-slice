@@ -1,130 +1,163 @@
-# A real run: expense tracker with my own categories
+# A real run: getting my own bank data into my own categories
 
-One afternoon, one person, one project. This is what the method actually did,
-including the parts that went wrong.
+*A walking-skeleton case study: finding the function everything else depends on and proving it first.*
 
----
+## I thought I was building a dashboard
 
-## The idea, as I first said it
+The original idea was:
 
-> A dashboard to track personal expenses, and a calendar view where I can log
-> trips I want to do, and I want to pull my banking app data, and see how much
-> money I currently have.
+> A dashboard to track my expenses, show how much money I have, and plan trips on a calendar.
 
-Three projects in one sentence. The first thing the method did was refuse it.
+That sounded like one product. It was really three.
 
-## What it asked
+I started thinking about charts, categories, screens, and how the trip calendar might work. Then I reached a question I had barely considered:
 
-Not "what features do you want". These:
+> Could my code read data from my N26 account at all?
 
-- What does this do, for one person, in one sentence, with no "and" in it?
-- Which of the seven risky parts does it touch?
-- Where does the data come from?
-- What would you need to see to call it working?
-- What do you actually want to find out?
-- Will anyone else ever open it?
+Every other feature depended on the answer.
 
-Six questions, a few minutes. I answered them myself. That mattered later.
+So I reduced the entire idea to one concrete job:
 
-## The card it produced
+> Retrieve one real bank transaction and save it under a category I define myself.
 
+Charts, trip calendar and polished interface are fluff in this case.
+
+Only one thin path through the system, from my bank account to my own code.
+
+## Banking data is surprisingly gatekept
+
+I knew banks had APIs. I had not understood how difficult those APIs could be to access.
+
+N26 provides account information through its PSD2 interface, but direct access is designed for regulated third-party providers and [requires a production QWAC certificate](https://support.n26.com/en-eu/security/open-banking-psd2/psd2-open-banking-for-third-party-providers).
+
+Having an N26 account and access to my data as a customer did not give my code access to that data. A direct integration was impractical for a personal prototype.
+
+I chose **Enable Banking** as an intermediary. It handles the regulated bank connection while my application handles authentication, transactions, and categorization.
+
+Enable Banking also offers a [restricted production mode](https://enablebanking.com/docs/api/linked-accounts/) that lets an individual connect only their own whitelisted accounts. That was exactly the boundary I needed.
+
+This was the first real learning from the project: the main function was not displaying expenses. It was getting the expenses in the first place.
+
+## Proving the connection with fake data
+
+I started in the sandbox.
+
+I registered an application, generated an RSA private key and public certificate, configured JWT authentication, and tested the connection from a small Python command-line tool.
+
+The first successful response was deliberately unexciting:
+
+```text
+Connected.
+environment  SANDBOX
+active       True
 ```
-LIVE SLICE CARD
-My expenses, in my own categories
 
-First user      Me. Only me for now.
-One job         See my expenses grouped into categories I define myself
-Real part       Bank data access. One real transaction, fetched by
-                deployed code, stored. Sandbox first, then my own account.
-Not yet         No trip calendar. No balance view. No charts, history,
-                budgets, rules, or auto-categorising. No login.
-Private/public  Just me. Unlisted address, password on the page.
-Done when       One real transaction from my bank sits in one category
-                I made up, and it is still there when I reopen.
-Question        Can I get read access to my own N26 account at all,
-                without a company or a licence?
-Next action     Sign up at the provider, pull one sandbox transaction
-                from a script. Before any interface.
+N26 was missing from Enable Banking’s sandbox list, so I couln't simulate it there. I used Nordea’s Finnish sandbox instead.
 
-Timebox: one sitting, then waiting on approval
+The authorization flow redirected me to a page that looked broken: the browser landed on Example Domain. But the address contained an authorization code. My script exchanged it for a session, found three simulated accounts, and confirmed that 38 transactions were available.
+
+Then it printed one transaction.
+
+That proved the complete technical path worked:
+
+```text
+private key → signed request → bank authorization → session → account → transaction
 ```
 
-The trip calendar and the balance view, the two things I had been most excited
-about, both went under "not yet". They are still not built. I have not missed
-them.
+I still had no idea whether the same path would work with my real N26 account, but I had tested every step around that final uncertainty.
 
-## What actually happened
+## Moving from simulation to my real N26 account
 
-**The research changed the plan before any code.** Checking whether my bank had
-an API turned up two things. My bank's own interface needs a licence a private
-person cannot get. And the free provider everyone recommends in blog posts had
-closed to new signups. Both facts were less than five minutes of looking, and
-both would have been discovered a week in.
+Sandbox and production applications are separate, so I registered a second application for production and generated a new private key.
 
-**The scary part came first.** Not the dashboard, not the categories. Signing up
-with a provider, generating keys, registering an application, connecting an
-account. All the tedious approval work, at the very start, when I still had
-energy for it.
+I linked my N26 accounts, which activated the application in restricted mode. Linking only whitelisted the accounts; the script still had to run the authorization flow again to create an API session.
 
-**The practice run came before the real one.** A test bank with fake Finnish
-data proved the code worked. Only then did I do the second registration for real
-money. When the real one failed I knew it was my account setup, not my code,
-because the code had already worked once.
+The next check returned:
 
-**Then it printed one real transaction.** Question answered: yes, a private
-person can read their own bank data. That was the whole point of the first
-slice, and it was answered before a single screen existed.
+```text
+Connected.
+environment  PRODUCTION
+active       True
+```
 
-## What it cost
+After N26 authorization, the script opened a session with three accounts and retrieved my real transactions.
 
-An afternoon. No dashboard, no calendar, no charts.
+That was the actual milestone.
 
-What I have instead is the certainty that the hard part works, and a tool I
-actually used the same day.
+The project still had no dashboard. It could now do the one thing every possible version of the product required: securely retrieve data from my own bank account.
 
-## What went wrong
+## Real use uncovered a second problem
 
-The honest part, since a case study where everything works is not worth reading.
+Once the bank connection worked, I used the tool on my actual expenses.
 
-**I chose the wrong category twice in my first three saves.** Filed a museum
-under groceries, and accidentally filed a bank transfer as an expense. There was
-no way to undo either.
+I tried to save a museum visit under one of my categories, but accidentally filed it under **groceries**.
 
-That turned out to be the most useful thing that happened. Picking a category is
-the main action of this whole tool. If getting it wrong is permanent, the file
-becomes junk within a week and you stop trusting it. So the next slice was not a
-chart or a calendar. It was being able to fix a mistake.
+Then I tried to correct it by running the save command again with **Fun**. The tool saved a different transaction instead: a bank transfer with no useful merchant name.
 
-I would not have found that by planning. I found it by using the thing on my own
-money on the same day I built it.
+Two product problems appeared:
 
-**Still unfinished, deliberately:** the bank connection expires and I have not
-yet tested what the tool does when it does. Transfers can still be filed as
-expenses, which is wrong. Both are on the list. Neither blocks using it.
+1. Saving an expense was different from recategorizing one.
+2. A number shown in a temporary list could not safely identify a transaction later.
 
-## What the run changed about this plugin
+The tool needed a way to inspect saved entries, remove the wrong one, and file the intended transaction again.
 
-Using it on something real found four bugs in the method itself. All four are
-fixed in the current version.
+I added commands to:
 
-1. **It assumed instead of asking.** It guessed I had never deployed anything,
-   from context. Now the rule is explicit: ask, never infer, because guessing low
-   is patronising and guessing high produces a card nobody can act on.
-2. **It offered me a menu of jobs it had invented**, I picked one, and that
-   laundered its assumption into my choice. Now the one job comes from the
-   person's own words, and listing back only what they actually said is treated
-   as different from inventing options.
-3. **It filled in card fields nobody had said out loud.** Done when, question,
-   first user. Now every value is checked against something the person actually
-   said, with those four named as the ones most commonly invented.
-4. **It did not ask what had changed between sessions.** I connected my bank
-   account without mentioning it, because to me it had already happened. Now
-   every skill that runs after building starts asks what changed first.
+- list transactions;
+- save a transaction under a custom category;
+- show saved expenses and category totals;
+- assign stable numbers to saved entries;
+- remove an incorrectly saved entry.
 
-## The honest limits
+I deleted both mistakes, found the museum transaction again, and saved it under **Fun**.
 
-This proved the path works. It did not prove anyone else wants this, that it is
-secure, or that it would survive more than one user.
+Changing your mind about a category turned out to be normal behaviour, not an edge case like Claude said lol. That learning only became available after the more fundamental API risk was resolved.
 
-It is a private tool for one person, holding one person's data, on one laptop.
-That was the point.
+## What exists now
+
+The project is still a command-line prototype, but it completes a real end-to-end job:
+
+- authenticate with Enable Banking using signed JWTs;
+- work with sandbox or restricted production access;
+- connect to an authorized bank account;
+- retrieve real transactions;
+- list transactions without storing credentials;
+- save selected expenses locally;
+- group them into categories defined by the user;
+- display category totals;
+- remove and recategorize mistakes.
+
+The user decides what the categories mean. 
+Still deliberately unfinished
+
+Several important limitations remain:
+
+Bank consent expires, and I have not tested the complete reauthorization experience.
+
+Transfers can still appear alongside expenses and need better filtering.
+
+The script automatically uses the first authorized account instead of offering account selection.
+
+Transaction matching and duplicate prevention need stronger rules.
+
+The private-key and session setup is still too technical for a normal user.
+
+There is no dashboard yet.
+
+These next steps came from using the working path. I did not have to invent them in advance.
+
+What I learned
+
+I began with a dashboard in mind. The most important work happened before there was anything to display.
+
+Charts, categories, and trip planning all assumed that the bank connection would work. I had treated that assumption as an implementation detail, then discovered a regulated and surprisingly complicated access layer underneath it.
+
+The rough command-line version was enough to cross every boundary that mattered: authentication, bank consent, account access, transaction retrieval, local categorization, and correction.
+
+The question I should have started with was:
+
+What has to be true for any of the rest of this product to work?
+
+For this project, the answer was simple to ask and unexpectedly difficult to prove:
+
+Can my code retrieve one real transaction from my own bank account?
