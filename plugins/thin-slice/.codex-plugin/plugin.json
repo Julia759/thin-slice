@@ -1,9 +1,9 @@
 {
   "name": "thin-slice",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Find the smallest real version worth building, then check it before you share it.",
   "author": {
-    "name": "Yuliia Zolotarova",
+    "name": "Julia759",
     "url": "https://github.com/Julia759"
   },
   "homepage": "https://thin-slice-plugin.yuliiazol.chatgpt.site",
@@ -23,7 +23,7 @@
     "displayName": "Thin Slice",
     "shortDescription": "Find the smallest real version worth building.",
     "longDescription": "Five focused workflows for planning a first version, reviewing scope, choosing what comes next, checking before sharing, and restarting a stalled project.",
-    "developerName": "Yuliia Zolotarova",
+    "developerName": "Julia759",
     "category": "Productivity",
     "capabilities": [
       "Interactive",
